@@ -1,38 +1,176 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  box-sizing: border-box;
+  max-width: 900px;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* 박스 스타일 */
+.box {
+  border: 2px solid #fff;
+  border-radius: 20px;
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.item-img {
+  width: 70%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.box.win {
+  border-color: #4CAF50;
+  animation: blink-green 1s infinite;
+}
+
+.box.lose {
+  border-color: red;
+}
+
+.box.tie {
+  border-color: black;
+}
+
+@keyframes blink-green {
+  0% {
+    box-shadow: 0 0 10px #4CAF50;
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+    box-shadow: 0 0 50px #4CAF50;
+  }
+
+  100% {
+    box-shadow: 0 0 10px #4CAF50;
+  }
+}
+
+
+/* 버튼 스타일 */
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 10px;
+}
+
+button img {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 20%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* 제목, 결과 테스트 스타일 */
+h1 {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+
+/* 점수판 스타일 */
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vh;
+  height: 5vh;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+}
+
+.scoreboard div {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-left: 0;
+
+}
+
+.resetBtn {
+  font-size: 15px;
+}
+
+.resetBtn:hover {
+  color: red;
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 250px;
+    min-width: 250px;
+    height: 400px;
+    margin: 10px;
+  }
+
+  button img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+    width: 170px;
+    min-width: 170px;
+    height: 300px;
+    margin: 10px;
+  }
+
+  button img {
+    width: 70px;
+    height: 70px;
   }
 }
